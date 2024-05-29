@@ -18,10 +18,11 @@ function App() {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
-                <Routes>
-                    <Route path="*" element={<UserCabinetContainer/>} />
+                <UserCabinetContainer/>
+                {/*<Routes>*/}
+                {/*    <Route path="*" element={} />*/}
                     {/*<Route path="/login" element={<Auth/>}/>*/}
-                    <Route path="/registration" element={<RegistrationPopup/>}/>
+                    {/*<Route path="/registration" element={<RegistrationPopup/>}/>*/}
                     {/*<Route*/}
                     {/*    path="*"*/}
                     {/*    element={*/}
@@ -37,7 +38,7 @@ function App() {
                     {/*        </>*/}
                     {/*    }*/}
                     {/*/>*/}
-                </Routes>
+                {/*</Routes>*/}
             </div>
         </BrowserRouter>
     );
