@@ -44,7 +44,7 @@ export const CustomPopupNew = ({
                 dispatch(registrationUser(formData));
             } else if (formType === 'authorization') {
                 dispatch(userAuthenticated({email: formData.email, password: formData.password}))
-                navigate('/delicadoc-frontend/cabinet')
+                navigate('/cabinet')
             } else if (formType === 'recovery') {
                 dispatch(restorePassword({email_phone: formData.email_phone}));
             }

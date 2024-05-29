@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import logo from './img/logo-vk.svg'
 import delicados from './img/Delicados.svg'
 import './NavigationMenu.css'
+import './NavigationMenuMedia.css'
 import {FiMenu} from "react-icons/fi";
 import {NavigationBurgerMenu} from "./burger-menu/NavigationBurgerMenu";
 
@@ -56,7 +57,6 @@ export const NavigationMenu = () => {
                         {
                             showMenuPopup && <NavigationBurgerMenu open={showMenuPopup} onClose={handleMenuClose}/>
                         }
-
                     </Nav>
                 </div>
         </Navbar>

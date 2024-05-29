@@ -18,29 +18,29 @@ function App() {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
-                <NavigationContainer/>
-                <Route path="/cabinet" >
-                    <UserCabinetContainer/>
-                </Route>
+                <Routes>
+                    <Route path="*" element={<NavigationContainer/>}/>
+                    <Route path="/cabinet" element = {<UserCabinetContainer/>}/>
+                </Routes>
                 {/*<Routes>*/}
                 {/*    <Route path="*" element={} />*/}
-                    {/*<Route path="/login" element={<Auth/>}/>*/}
-                    {/*<Route path="/registration" element={<RegistrationPopup/>}/>*/}
-                    {/*<Route*/}
-                    {/*    path="*"*/}
-                    {/*    element={*/}
-                    {/*        <>*/}
-                    {/*            <NavigationContainer />*/}
-                    {/*            <MainComponent/>*/}
-                    {/*            /!*<MainComponent />*!/*/}
-                    {/*            <Play />*/}
-                    {/*            <Winners />*/}
-                    {/*            <Shops />*/}
-                    {/*            <QuestionAnswer />*/}
-                    {/*            <Footer/>*/}
-                    {/*        </>*/}
-                    {/*    }*/}
-                    {/*/>*/}
+                {/*    <Route path="/login" element={<Auth/>}/>*/}
+                {/*    <Route path="/registration" element={<RegistrationPopup/>}/>*/}
+                {/*    <Route*/}
+                {/*        path="*"*/}
+                {/*        element={*/}
+                {/*            <>*/}
+                {/*                <NavigationContainer />*/}
+                {/*                <MainComponent/>*/}
+                {/*                /!*<MainComponent />*!/*/}
+                {/*                <Play />*/}
+                {/*                <Winners />*/}
+                {/*                <Shops />*/}
+                {/*                <QuestionAnswer />*/}
+                {/*                <Footer/>*/}
+                {/*            </>*/}
+                {/*        }*/}
+                {/*    />*/}
                 {/*</Routes>*/}
             </div>
         </BrowserRouter>
