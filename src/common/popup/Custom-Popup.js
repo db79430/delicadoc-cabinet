@@ -52,7 +52,7 @@ export const CustomPopupNew = ({
                         try {
                             const response = await dispatch(userAuthenticated({ email: formData.email, password: formData.password }));
                             if (response) {
-                                navigate("/cabinet");
+                                navigate("/delicadoc-cabinet/cabinet");
                             } else if (response && response.status && response.status === 412) {
                                 alert("Неверные данные для входа");
                             }

@@ -20,7 +20,7 @@ function App() {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            navigate('/cabinet');
+            navigate('delicadoc-cabinet/cabinet');
         }
     }, [navigate]);
 
