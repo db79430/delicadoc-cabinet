@@ -19,7 +19,7 @@ function App() {
         <BrowserRouter>
             <div className="app-wrapper">
                 <Routes>
-                    <Route path="delicadoc-cabinet/cabinet" element={<UserCabinetContainer/>} />
+                    <Route path="/cabinet" element={<UserCabinetContainer/>} />
                     {/*<Route path="/login" element={<Auth/>}/>*/}
                     <Route path="/registration" element={<RegistrationPopup/>}/>
                     {/*<Route*/}
