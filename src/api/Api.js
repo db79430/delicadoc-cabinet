@@ -51,9 +51,9 @@ export const apiWeb = {
         })
     },
 
-    async getUserInfo(token, data){
+    async getUserInfo(token){
         const axiosInstance = await getAxiosInstance();
-        return axiosInstance.get(`/user/${token}`, data).then(response => {
+        return axiosInstance.get(`/user/${token}`).then(response => {
             return response.data
         })
     },

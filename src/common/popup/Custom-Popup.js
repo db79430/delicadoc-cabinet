@@ -48,16 +48,26 @@ export const CustomPopupNew = ({
                     dispatch(registrationUser(formData));
                     break;
                 case 'authorization':
-                    dispatch(userAuthenticated({email: formData.email, password: formData.password}))
-                        navigate('/cabinet')
-                    break;
-                case 'recovery':
-                    dispatch(restorePassword({email_phone: formData.email_phone}));
+                    (async () => {
+                        try {
+                            const response = await dispatch(userAuthenticated({ email: formData.email, password: formData.password }));
+                            if (response) {
+                                navigate("/cabinet");
+                            } else if (response && response.status && response.status === 412) {
+                                alert("Неверные данные для входа");
+                            }
+                        } catch (error) {
+                            console.error('Error during authentication:', error);
+                            alert('Произошла ошибка при попытке авторизации');
+                        }
+                    })();
                     break;
                 default:
                     console.error('Unknown form type');
             }
         }
+
+    console.log('Navigate function:', navigate);
 
         const renderFormFields = () => {
             if (formType === 'registration') {

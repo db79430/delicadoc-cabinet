@@ -55,16 +55,31 @@ export const getWeekInfoPromo = () => {
 //     }
 // };
 
-export const userAuthenticated = (data) => dispatch => {
-    return apiWeb.postUserAuthenticated(data).then(data => {
-        dispatch(setUserAuthenticated(data.user));
-        dispatch(setUserToken(data.token));
-        return data;
-    }).catch(error => {
-        if (error.response.status === 412) {
-            alert("Неверные данные для входа")
+// export const userAuthenticated = (data) => dispatch => {
+//     return apiWeb.postUserAuthenticated(data).then(data => {
+//         dispatch(setUserAuthenticated(data.user));
+//         dispatch(setUserToken(data.token));
+//         return data;
+//     }).catch(error => {
+//         if (error.response.status === 412) {
+//             alert("Неверные данные для входа")
+//         }
+//     })
+// };
+
+export const userAuthenticated = (data) => async dispatch => {
+    try {
+        const response = await apiWeb.postUserAuthenticated(data);
+        dispatch(setUserAuthenticated(response.user));
+        dispatch(setUserToken(response.token));
+        return response;
+    } catch (error) {
+        if (error.response && error.response.status === 412) {
+            alert("Неверные данные для входа");
+        } else {
+            throw error;
         }
-    })
+    }
 };
 
 export const userInfo = (token) => (dispatch, getState) => {
