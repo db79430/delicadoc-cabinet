@@ -1,6 +1,6 @@
 import {Modal, Nav} from "react-bootstrap";
 import CustomButton from "../../common/button/Button";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {IoCloseOutline} from "react-icons/io5";
 import {FiMenu} from "react-icons/fi";
 import './NavigationMenu.css'
@@ -26,6 +26,7 @@ export const NavigationButtonCabinet = ({token}) => {
             token: '',
             formType: ''
         });
+
 
         const handleOpenPopupAuth = () => {
             setOpenPopupAuth(true);
@@ -56,53 +57,53 @@ export const NavigationButtonCabinet = ({token}) => {
 
         return (
             <>
-            <div className="button-container">
-                {/*<Nav.Item className="button-word">*/}
-                {/*    <CustomButton textColor="green" size="sm" color="primary" text={"Играть"}/>*/}
-                {/*</Nav.Item>*/}
-                {/*<Nav.Item className="button-word">*/}
-                {/*    <CustomButton*/}
-                {/*        textColor="white"*/}
-                {/*        size="sm"*/}
-                {/*        color="green"*/}
-                {/*        text={"Войти"}*/}
-                {/*        onClick={() => handleButtonClick('registration')}*/}
-                {/*    />*/}
-            <CustomPopupNew
-                formData={formData}
-                open={openPopupRegistration}
-                onClose={() => setOpenPopupRegistration(false)}
-                setFormData={setFormData}
-                formType="registration"
-                handleOpenPopupAuth={handleOpenPopupAuth}
-                handleOpenPopupRecovery={handleOpenPopupRecovery}
-            />
-            {openPopupAuth && (
-                <CustomPopupNew
-                    open={openPopupAuth}
-                    onClose={() => setOpenPopupAuth(false)}
-                    formType="authorization"
-                    setFormData={setFormData}
-                    formData={formData}
-                    handleOpenPopupAuth={handleOpenPopupAuth}
-                    handleOpenPopupRecovery={handleOpenPopupRecovery}
-                />
-            )}
-            {openPopupRecovery && (
-                <CustomPopupNew
-                    open={openPopupRecovery}
-                    onClose={() => setOpenPopupRecovery(false)}
-                    formType="recovery"
-                    setFormData={setFormData}
-                    formData={formData}
-                    handleOpenPopupAuth={handleOpenPopupAuth}
-                    handleOpenPopupRecovery={handleOpenPopupRecovery}
-                />
-            )}
-            {/*</Nav.Item>*/}
-    </div>
-    </>
-    )
-        ;
+                <div className="button-container">
+                    {/*<Nav.Item className="button-word">*/}
+                    {/*    <CustomButton textColor="green" size="sm" color="primary" text={"Играть"}/>*/}
+                    {/*</Nav.Item>*/}
+                    {/*<Nav.Item className="button-word">*/}
+                    {/*    <CustomButton*/}
+                    {/*        textColor="white"*/}
+                    {/*        size="sm"*/}
+                    {/*        color="green"*/}
+                    {/*        text={"Войти"}*/}
+                    {/*        onClick={() => handleButtonClick('registration')}*/}
+                    {/*    />*/}
+                    <CustomPopupNew
+                        formData={formData}
+                        open={openPopupRegistration}
+                        onClose={() => setOpenPopupRegistration(false)}
+                        setFormData={setFormData}
+                        formType="registration"
+                        handleOpenPopupAuth={handleOpenPopupAuth}
+                        handleOpenPopupRecovery={handleOpenPopupRecovery}
+                    />
+                    {openPopupAuth && (
+                        <CustomPopupNew
+                            open={openPopupAuth}
+                            onClose={() => setOpenPopupAuth(false)}
+                            formType="authorization"
+                            setFormData={setFormData}
+                            formData={formData}
+                            handleOpenPopupAuth={handleOpenPopupAuth}
+                            handleOpenPopupRecovery={handleOpenPopupRecovery}
+                        />
+                    )}
+                    {openPopupRecovery && (
+                        <CustomPopupNew
+                            open={openPopupRecovery}
+                            onClose={() => setOpenPopupRecovery(false)}
+                            formType="recovery"
+                            setFormData={setFormData}
+                            formData={formData}
+                            handleOpenPopupAuth={handleOpenPopupAuth}
+                            handleOpenPopupRecovery={handleOpenPopupRecovery}
+                        />
+                    )}
+                    {/*</Nav.Item>*/}
+                </div>
+            </>
+        )
+            ;
     }
 ;

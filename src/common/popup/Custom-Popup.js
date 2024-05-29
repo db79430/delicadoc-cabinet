@@ -26,11 +26,13 @@ export const CustomPopupNew = ({
                                    setFormData,
                                    handleOpenPopupAuth,
                                    handleOpenPopupRecovery,
-                                   token
+                                   token,
+                                   context
                                }) => {
         const dispatch = useDispatch();
         const location = useLocation();
         const navigate = useNavigate();
+
 
         const handleChange = (e) => {
             const {name, value} = e.target;
@@ -41,17 +43,23 @@ export const CustomPopupNew = ({
         };
 
         const handleSubmit = (formType) => {
-            if (formType === 'registration') {
-                dispatch(registrationUser(formData));
-            } else if (formType === 'authorization') {
-                dispatch(userAuthenticated({email: formData.email, password: formData.password}))
-                navigate('/cabinet')
-            } else if (formType === 'recovery') {
-                dispatch(restorePassword({email_phone: formData.email_phone}));
+            switch (formType) {
+                case 'registration':
+                    dispatch(registrationUser(formData));
+                    break;
+                case 'authorization':
+                    dispatch(userAuthenticated({email: formData.email, password: formData.password}))
+                        navigate('/cabinet')
+                    break;
+                case 'recovery':
+                    dispatch(restorePassword({email_phone: formData.email_phone}));
+                    break;
+                default:
+                    console.error('Unknown form type');
             }
         }
 
-    const renderFormFields = () => {
+        const renderFormFields = () => {
             if (formType === 'registration') {
                 return (
                     <div>
