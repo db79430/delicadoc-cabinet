@@ -1,0 +1,32 @@
+@media (max-width: 430px) {
+    .burger-menu-container {
+        display: flex;
+    }
+
+    .tooldbar-media {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logo-delicados {
+        width: 128px;
+        height: 54px;
+    }
+
+    .logo-burger {
+        width: 54px;
+        height: 54px;
+    }
+
+    .logo-delicados,
+    .logo-burger {
+        padding-top: 22px;
+        padding-left: 18px;
+    }
+
+    .logo-images {
+        margin-left: 0;
+    }
+
+
+}

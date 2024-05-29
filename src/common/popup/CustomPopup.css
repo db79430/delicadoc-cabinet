@@ -1,0 +1,43 @@
+/*!* Стили для модального окна *!*/
+/*.modal-container {*/
+/*    background-color: white;*/
+/*}*/
+
+/*!* Стили для заголовка формы *!*/
+/*.modal-title {*/
+/*    color: orange;*/
+/*}*/
+
+/*!* Стили для текста в форме *!*/
+/*.form-control,*/
+/*.form-label-custom,*/
+/*.form-check-label {*/
+/*    color: orange;*/
+/*}*/
+
+/*.close-button {*/
+/*    color: orange;*/
+/*}*/
+
+
+/*!* Подсветка чекбокса *!*/
+/*.form-check-orange .form-check-input:checked {*/
+/*    background-color: orange;*/
+/*}*/
+
+.modal-title {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.account-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.text-email-recovery {
+    color: #FD6900;
+    font-size: 16px;
+}

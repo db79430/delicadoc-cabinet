@@ -1,0 +1,13 @@
+.winners-item {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.button-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(4, 0fr);
+    row-gap: 10px;
+    column-gap: 30px;
+}

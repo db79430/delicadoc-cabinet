@@ -1,0 +1,105 @@
+.custom-button {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: "Blue Curve", sans-serif;
+    line-height: 21px;
+}
+
+.custom-button.primary {
+    background: rgb(255, 255, 255);
+    border-radius: 0 10px 10px 10px;
+    box-shadow: 0 4px 14px 0 rgba(123, 70, 12, 0.4);
+    border: 1px solid white;
+}
+
+.custom-button.green {
+    border-radius: 0 10px 10px 10px;
+    box-shadow: 0 4px 14px 0 rgba(123, 70, 12, 0.4);
+    background: rgb(109, 113, 46);
+    border: 1px solid rgb(109, 113, 46);
+}
+
+.custom-button.yellow {
+    border-radius: 0 15px 15px 15px;
+    box-shadow: 0 4px 14px 0 rgba(123, 70, 12, 0.4);
+    background: rgb(255, 210, 44);
+    border: 1px solid rgb(255, 210, 44);
+}
+
+.custom-button.secondary {
+    /* Стили для кнопки с классом secondary */
+}
+
+.custom-button.border {
+    border-radius: 0 10px 10px 10px;
+    box-shadow: 0 4px 14px 0 rgba(123, 70, 12, 0.4);
+    border: 1px solid white;
+    background: transparent; /* Убирает фон */
+    color: white;
+}
+
+.custom-button.sm {
+    width: 124px;
+    height: 41px;
+
+}
+
+.custom-button.ms {
+    width: 201px;
+    height: 60px;
+
+}
+
+.custom-button.ls {
+    width: 201px;
+    height: 42px;
+
+}
+
+.custom-button.md {
+    width: 520px;
+    height: 60px;
+    font-size: 20px;
+    line-height: 21px;
+}
+
+.custom-button.lg {
+    width: 300px;
+    height: 120px;
+}
+
+.custom-button.dg {
+    width: 412px;
+    height: 60px;
+}
+.custom-button.rg {
+    width: 270px;
+    height: 50px;
+}
+
+.custom-button.lr {
+    width: 348px;
+    height: 60px;
+}
+
+.custom-button.green-text {
+    color: #6D712E ;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Blue Curve", sans-serif;
+}
+
+.custom-button.white-text {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Blue Curve", sans-serif;
+}
+
+.custom-button.brown-text {
+    color: #341700;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Blue Curve", sans-serif;
+}
+

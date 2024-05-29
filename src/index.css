@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  font-family: 'Blue Curve', sans-serif;
+  background-color: #FD6900;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: white;
+}
+
+@font-face {
+  font-family: 'Blue Curve';
+  src: url('assets/fonts/Bluecurve-Regular.ttf') format('truetype'),
+  url('assets/fonts/Bluecurve-Bold.ttf') format('truetype'),
+  url('assets/fonts/Bluecurve-Light.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Flame Bold";
+  src: url("assets/fonts/Flame-Bold.ttf") format('truetype');
+}
+
+
+@font-face {
+  font-family: "Flame Regular";
+  src: url("assets/fonts/Flame-Regular.ttf") format('truetype');
+}

@@ -1,0 +1,15 @@
+<svg width="624.000000" height="493.000000" viewBox="0 0 624 493" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<filter id="filter_820_1953_dd" x="-0.800049" y="-0.022888" width="624.249146" height="492.568298" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+			<feGaussianBlur stdDeviation="17.2667" result="effect_layerBlur_1"/>
+		</filter>
+	</defs>
+	<g filter="url(#filter_820_1953_dd)">
+		<path id="Vector 10" d="M155.66 432.5C156.32 430 155.16 420.9 145.16 404.5C132.66 384 15.66 302.5 61.66 306.5C107.66 310.5 124.66 318.5 126.16 292C127.66 265.5 47.66 269 80.16 256.5C112.66 244 157.16 262 165.16 246C173.16 230 150.66 136.5 179.16 142C207.66 147.5 211.16 212 225.16 213C239.16 214 233.66 23 249.66 55.5C265.66 88 268.16 191.5 288.66 189.5C309.16 187.5 378.66 125 378.16 150C377.66 175 361.16 202.5 385.16 199C409.16 195.5 574.15 50.5 551.15 86.5C528.15 122.5 428.66 192 437.66 213C446.66 234 555.15 198 531.15 222C507.16 246 431.16 282 470.16 292C509.16 302 558.65 302.5 527.65 326C496.66 349.5 490.16 354.5 510.66 360C531.15 365.5 546.15 384.5 521.15 390.5C496.16 396.5 610.15 424 557.65 426C505.16 428 155.66 453.5 155.66 432.5Z" fill="#FED201" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</g>
+</svg>

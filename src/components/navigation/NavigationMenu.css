@@ -1,0 +1,81 @@
+   .nav-container {
+       display: flex;
+       justify-content: space-between;
+   }
+    .container {
+        display: flex;
+        justify-content: center;
+        z-index: 0;
+    }
+    .img-navbar {
+        display: flex;
+        padding: 0;
+        justify-content: center;
+    }
+
+    .logo-delicados {
+        width: 148px;
+        height: 64px;
+    }
+
+    .logo-burger {
+        width: 70px;
+        height: 70px;
+    }
+
+    .logo-delicados,
+    .logo-burger {
+        padding-top: 22px;
+        padding-left: 18px;
+    }
+
+    .button-word {
+    }
+
+    .button-container-cabinet {
+        display: flex;
+        flex-direction: column;
+        margin-top: 32px;
+        margin-left: 22px;
+    }
+
+    .ml-auto {
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu-nav {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-top: 18px;
+    }
+
+    .button-container {
+        margin-top: 8px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .menu-word {
+        padding-top: 20px;
+        padding-left: 20px;
+        font-size: 20px;
+    }
+
+    .button-word {
+        padding-top: 20px;
+        padding-left: 20px;
+        z-index: 1;
+    }
+
+    .burger-menu-container {
+        display: none;
+    }
+
+    .logo-images {
+        margin-left: 24px;
+    }
+
+

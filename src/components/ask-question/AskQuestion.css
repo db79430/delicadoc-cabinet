@@ -1,0 +1,24 @@
+.askquestion-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+}
+
+.lef-img {
+    padding: 0;
+    position: relative;
+    z-index: 0;
+    top: -20%;
+    left: -10%;
+}
+
+
+
+.img-cactus {
+    padding: 0;
+    position: relative;
+    top: 20%;
+    left: 10%;
+}

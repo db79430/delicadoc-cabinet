@@ -1,0 +1,80 @@
+@media (max-width: 430px) {
+    .ml-auto,
+    .menu-nav,
+    .button-container,
+    .menu-word,
+    .menu-container,
+    .button-container-cabinet
+    {
+        display: none;
+    }
+
+    .modal-auth-container {
+        width: 320px;
+        height: 611px;
+        position: relative;
+        background-color: #FD6900;
+
+    }
+
+    .modal-body-popup {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .img-navbar {
+        display: flex;
+        padding: 0;
+        justify-content: space-between;
+    }
+
+    .logo-delicados,
+    .logo-burgerking {
+        padding-top: 22px;
+        padding-left: 18px;
+    }
+
+
+
+    .icon-burger-menu {
+        color: white;
+    }
+
+    .popup-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .modal-auth-container {
+        z-index: 1;
+
+    }
+
+    .popup-nav-word {
+        /*display: flex;*/
+        /*justify-content: center;*/
+        /*flex-direction: row;*/
+
+    }
+
+    .button-word-popup {
+        margin-top: 10px;
+    }
+
+    .menu-word-popup {
+        padding-top: 20px;
+        padding-left: 20px;
+        font-size: 20px;
+        color: white;
+    }
+
+    .button-container-popup {
+        margin-top: 20px;
+        margin-left: 20px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+}

@@ -1,0 +1,6 @@
+.navigation-container {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    z-index: 0;
+}

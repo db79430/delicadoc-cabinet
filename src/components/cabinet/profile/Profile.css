@@ -1,0 +1,87 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-title {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+
+}
+
+.profile-date-title {
+    font-family: "Flame Regular", sans-serif;
+    font-size: 42px;
+    margin-left: 5%;
+}
+
+.points {
+    position: relative;
+    margin-right: 4%;
+    width: 249px;
+    height: 125px;
+    border-radius: 0 20px 20px 20px;
+    box-shadow: 0 13px 41px 13px rgba(59, 26, 3, 0.1);
+    background: linear-gradient(135deg, #FFA500, #FF4500);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+}
+
+.points p {
+    margin-top: 20px;
+}
+
+.number-points {
+    font-size: 42px;
+    font-family: "Flame Regular", sans-serif;
+    text-align: center;
+}
+.form-cabinet {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.form-cabinet-two {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.form-group-cabinet {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 20px;
+}
+
+.form-label-custom {
+    font-weight: bold;
+}
+
+.form-control-cabinet {
+    width: 420px;
+    height: 110px;
+    padding: 10px;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.update-data {
+    position: relative;
+    left: 10%;
+    font-size: 20px;
+    top: 20%;
+}

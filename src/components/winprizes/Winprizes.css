@@ -1,0 +1,108 @@
+.promo-block {
+    /*padding: 20px;*/
+    /*margin-top: 400px;*/
+    display: flex;
+    justify-content: center;
+}
+
+
+/*.image-vector, .chips, .shadow, .substract {*/
+/*    display: flex;*/
+/*}*/
+
+.winprizes-container {
+    position: relative;
+    /*margin-top: 20px;*/
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.step-text-container {
+    position: relative;
+    top: 160px;
+    z-index: 1;
+
+}
+
+.step {
+    display: block;
+    width: 280px;
+    padding: 0;
+    font-family: "Flame Bold", sans-serif;
+    color: #341700;
+}
+
+.step-number {
+    font-size: 40px;
+    margin-top: 10px;
+    margin-left: 50px;
+
+}
+
+.step-text {
+    margin-left: 50px;
+    /*padding-top: 6px;*/
+    font-family: "Flame Regular", sans-serif;
+}
+
+.step-name {
+    top: 28%;
+    margin-left: 50px;
+    font-size: 14px;
+    font-family: "Flame Regular", sans-serif;
+    padding-top: 6px;
+}
+
+.rectlange-img {
+    max-width: 390px;
+    z-index: 0;
+}
+
+.text-container {
+    margin-top: 40px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 4px;
+    margin-top: 20px;
+}
+
+.how-prizes-text {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: -400px;
+    font-family: "Flame Bold", sans-serif;
+}
+
+.slider-container {
+    display: block;
+    width: 90%;
+
+}
+
+.buttons .CustomButton {
+    transition: background-color 0.3s;
+}
+
+.buttons .CustomButton:hover {
+    background-color: orange;
+}
+
+.buttons .CustomButton.active {
+    background-color: orange;
+}

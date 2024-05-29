@@ -1,0 +1,19 @@
+<svg width="980.000000" height="1317.000000" viewBox="0 0 980 1317" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<filter id="filter_700_467_dd" x="-0.196960" y="-0.809814" width="979.354553" height="1317.694824" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+			<feGaussianBlur stdDeviation="19.7667" result="effect_layerBlur_1"/>
+		</filter>
+		<linearGradient x1="535.500000" y1="741.500000" x2="840.999878" y2="1165.500000" id="paint_linear_700_467_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#FDD201"/>
+			<stop offset="1.000000" stop-color="#FDD201" stop-opacity="0.000000"/>
+		</linearGradient>
+	</defs>
+	<g filter="url(#filter_700_467_dd)">
+		<path id="Vector 3" d="M154.47 717.38C169.64 668.38 207.87 561.18 239.47 524.38C278.97 478.38 306.97 394.38 333.47 313.38C359.97 232.38 387.5 217.5 403 170C418.5 122.5 411.5 78.5 467.5 67.5C523.5 56.5 607.47 58.88 660.47 58.88C713.47 58.88 822.5 52.99 835 86.49C847.5 120 804.84 212.22 819 290.5C835 379 814 453.5 835 509.5C856 565.5 861.47 588.88 843.47 644.88C825.47 700.88 959.5 1174.5 908 1205C856.5 1235.5 283 1263.5 126 1256.5C-31.01 1249.5 134.97 810.88 154.47 717.38Z" fill="url(#paint_linear_700_467_0)" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</g>
+</svg>

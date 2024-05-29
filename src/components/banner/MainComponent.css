@@ -1,0 +1,217 @@
+/*.container {*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*}*/
+
+.main-container-left {
+    /*position: absolute;*/
+    /*display: flex;*/
+    /*align-items: flex-start;*/
+    /*justify-content: left;*/
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 1124px;
+}
+
+.image-container-main {
+    display: flex;
+    justify-content: left;
+    width: 50%;
+}
+.text_under {
+    position: absolute;
+    width: 265px;
+    height: 42px;
+    color: #341700;
+    font-size: 20px;
+    left: 10%;
+    top: 800px;
+    z-index: 2;
+}
+.logo-container {
+    display: block;
+    position: absolute;
+    z-index: 4;
+    top: 800px;
+    left: 40%;
+}
+.logo {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+}
+
+.image-vector {
+    display: block;
+    position: relative;
+    /*width: 70%;*/
+    left: -20%;
+    /*margin-top: 14%;*/
+    z-index: 0;
+
+}
+.chips-main {
+    display: block;
+    width: 60%;
+    position: absolute;
+    top: 15%;
+    z-index: 1;
+}
+
+.shadow {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    width: 90%;
+    left: 1%;
+    top: 32%
+}
+
+.substract {
+    z-index: 0;
+    width: 140%;
+    top: 25%;
+    right: 35%;
+}
+
+.prize-container {
+    z-index: 6;
+    width: 450px;
+    position: relative;
+
+}
+
+.airoplane-img {
+    display: block;
+    position: relative;
+    width: 300px;
+    z-index: 5;
+    left: -16%;
+    /*top: 60%;*/
+}
+
+.mexico-img {
+    display: block;
+    position: relative;
+    z-index: 4;
+    left: -28%;
+    /*top: 10%;*/
+}
+
+.table-main {
+    display: flex;
+    justify-content: space-between;
+}
+
+.prize-text {
+    position: relative;
+    width: 540px;
+    height: 190px;
+    color: #66722D;
+    font-size: 20px;
+    padding: 2px;
+    z-index: 7;
+    font-family: "Blue Curve", sans-serif;
+    left: -16%;
+    margin-top: 160px;
+
+}
+
+.prize-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.prize-item {
+    font-size: 32px;
+    padding: 2px;
+}
+
+.chips-image {
+    object-fit: cover;
+    z-Index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+}
+
+.chips-table {
+
+}
+
+.register-check {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 16px;
+    width: 426px;
+    height: 66px;
+    border-radius: 0 15px 15px 15px;
+    box-shadow: -2px 4px 20px 0 rgba(255, 255, 255, 0.5),0 4px 90px 0 rgb(254, 208, 1);
+    background: rgb(109, 113, 46);
+}
+
+.register-check p {
+    margin-left: 16px;
+
+}
+
+.icon-image {
+    width: 48px;
+    margin-left: 16px;
+    height: 46px;
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 0px 15px 15px 15px;
+    box-shadow: 0px 4px 14.7px 0px rgba(123, 70, 12, 0.4);
+    background: rgb(255, 255, 255);
+}
+
+.button-web {
+    margin-left: 16px;
+}
+
+.burger-container {
+    position: relative;
+    margin-top: 60px;
+    width: 50%;
+    left: 20%;
+    top: -50%;
+    z-index: 2;
+}
+
+
+.title-burger {
+    font-family: "Flame Bold", sans-serif;
+    font-size: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.register-text {
+    font-size: 18px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.winprizes-container {
+    /*display: flex;*/
+    /*left: 0;*/
+    /*top: 50%;*/
+    /*z-index: 7;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+
+.win-container {
+    /*margin-top: 30%;*/
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}

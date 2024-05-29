@@ -1,0 +1,84 @@
+@media (max-width: 430px) {
+    .text_under,
+    .mexico-img,
+    .logo-container,
+    .logo
+    {
+        display: none;
+    }
+
+    .burger-container {
+        position: absolute;
+        margin-top: 62px;
+        text-align: center;
+        width: 50%;
+        left: 8%;
+        top: 0;
+    }
+
+    .title-burger {
+        font-family: "Flame Bold", sans-serif;
+        font-size: 20px;
+        padding: 0;
+        top: 10%;
+        position: relative;
+    }
+
+    .main-container {
+        display: flex;
+        box-sizing: border-box;
+        justify-content: center;
+        flex-direction: row;
+        width: 1224px;
+    }
+    .image-container-main {
+        display: flex;
+        justify-content: center;
+    }
+
+    .chips-main {
+        display: block;
+        width: 90%;
+        position: absolute;
+        top: 15%;
+        left: -2%;
+        z-index: 1;
+    }
+
+    .image-vector {
+        display: block;
+        position: relative;
+        width: 160%;
+        height: 100%;
+        left: 30%;
+        top: 20%;
+        margin-top: 14%;
+        z-index: 0;
+
+    }
+
+    .shadow {
+        display: flex;
+        position: absolute;
+        z-index: 2;
+        width: 120%;
+        height: 50%;
+        left: -1%;
+        top: 22%
+    }
+
+    .register-check {
+        display: flex;
+        position: relative;
+        top: 50%;
+        align-items: center;
+        text-align: center;
+        margin: 16px;
+        width: 326px;
+        height: 66px;
+    }
+
+    .win-container {
+        margin-top: 170%;
+    }
+}

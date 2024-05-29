@@ -1,0 +1,40 @@
+.question-container {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.text-accordion {
+    font-family: 'Blue Curve', sans-serif;
+    color: white;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    background: rgb(109, 113, 46);
+}
+
+.accordion-item:nth-child(odd) {
+    background-color: rgb(109, 113, 46);
+    border-radius: 10%;
+}
+
+.accordion-item:nth-child(even) {
+    background-color: transparent;
+}
+
+.accordion-item .MuiAccordionSummary-root.Mui-expanded {
+    background: rgb(109, 113, 46);
+}
+
+.accordion-item .MuiAccordionSummary-root {
+    background: transparent /* Цвет текста аккордеона */
+}
+
+.accordion-item .MuiAccordionSummary-content.Mui-expanded {
+    margin: 12px 0; /* Увеличиваем отступ внутри развернутого аккордеона */
+}
+
+.accordion-item .MuiAccordionSummary-expandIcon.Mui-expanded {
+    color: white; /* Цвет стрелки развернутого аккордеона */
+}

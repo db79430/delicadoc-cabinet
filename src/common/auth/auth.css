@@ -1,0 +1,106 @@
+.modal-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    border-radius: 40px;
+    background: rgb(255, 251, 244);
+    margin-top: 100px;
+    left: 50%;
+    z-index: 2;
+}
+
+.modal-title {
+    padding-top: 32px;
+    text-align: center;
+    font-family: "Flame Regular", sans-serif;
+    font-size: 30px;
+    color: #FF7505;
+}
+
+.form-control {
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 117, 5);
+    border-radius: 20px;
+    width: 300px;
+    height: 48px;
+    /*margin: 25px 0;*/
+}
+
+.form-control::placeholder {
+    color: rgb(255, 193, 142);
+
+    font-family: "Flame Regular", sans-serif;
+    padding-left: 16px;
+}
+
+.form-label-custom {
+    position: relative;
+    text-align: left;
+    color: rgb(255, 117, 5);
+    font-size: 16px;
+    margin: 10px;
+    font-family: "Flame Regular", sans-serif;
+}
+
+.close-button {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 90%;
+    top: 17px;
+    color: #341700;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-group {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.custom-button-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.button-form {
+    top: 50%;
+}
+
+.text-account {
+    color: #341700;
+}
+
+.auth-text {
+    margin-left: 5px;
+    color: rgb(255, 117, 5);
+}
+
+.form-check-orange {
+    color: #FD6900;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.form-check-orange .form-check-input[type="checkbox"]:checked + .form-check-label::before {
+    border-color: #FD6900;
+}
+
+.form-check-orange .form-check-input[type="checkbox"]:not(:checked) + .form-check-label::before {
+    border-color: #FFA500;
+}
+
+.form-check-orange .form-check-input[type="checkbox"]:checked + .form-check-label::after {
+    background-color: #FFA500;
+}

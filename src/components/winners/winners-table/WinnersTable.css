@@ -1,0 +1,45 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.table-prizes {
+    box-sizing: border-box;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0 30px 30px 30px;
+    box-shadow: 0 20px 62px 20px rgba(59, 26, 3, 0.1);
+    backdrop-filter: blur(14px);
+    background: rgba(235, 97, 0, 0.5);
+    width: 1168px;
+    height: 506px;
+}
+
+.thead {
+
+}
+.title-table {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    /*margin-left: 50px;*/
+
+
+}
+
+.title-name {
+    margin-left: 8%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid rgb(255, 193, 142);
+    border-radius: 5px;
+    padding: 7px 31px 7px 31px;
+    font-size: 15px;
+    color: #FFC18E;
+}
+
+.table-body {
+
+}

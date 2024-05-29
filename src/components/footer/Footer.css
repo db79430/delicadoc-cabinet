@@ -1,0 +1,107 @@
+.footer-container {
+    width: 100%;
+    height: 326px;
+    background: rgb(255, 117, 5);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+}
+
+.footer-general {
+    display: flex;
+    flex-direction: row;
+    gap: 8rem;
+}
+
+.footer-promotion {
+    border-radius: 0 20px 20px 20px;
+    background: rgb(255, 138, 42);
+    margin: 20px;
+    padding: 20px;
+}
+
+.rules {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 20px;
+}
+
+.text-rules {
+    padding: 10px;
+    font-size: 18px;
+}
+
+
+.text-rules::after {
+    content: '→';
+    margin-left: 10px;
+    text-align: center;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.footer-phone {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    top: 20px;
+
+}
+
+.footer-circle {
+    position: relative;
+    box-sizing: border-box;
+    border: 2px solid rgb(255, 193, 142);
+    backdrop-filter: blur(24px);
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    width: 62px;
+    height: 62px;
+    left: 40px;
+}
+
+.footer-service-phone {
+    position: relative;
+    left: 20%;
+    bottom: 10%;
+    margin: 0;
+}
+
+.footer-age {
+    position: relative;
+    bottom: 5px;
+    left: 3px;
+    color: rgb(255, 193, 142);
+    font-family: "Flame Regular", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+
+}
+
+.footer-service {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    left: 80px;
+}
+
+.footer-text {
+    position: relative;
+    color: rgb(255, 193, 142);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: left;
+}
+
+.footer-phone-number {
+    font-family: "Flame Bold", sans-serif;
+    font-size: 40px;
+    margin: 0;
+}

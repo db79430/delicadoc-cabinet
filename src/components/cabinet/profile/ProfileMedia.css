@@ -1,0 +1,84 @@
+@media (max-width: 430px) {
+    .button-container-cabinet {
+        display: none;
+    }
+    .profile-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-title {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 0;
+        width: 100%;
+
+    }
+
+    .profile-date-title {
+        font-family: "Flame Regular", sans-serif;
+        font-size: 42px;
+        margin-left: 3%;
+    }
+
+    .points {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        right: 0;
+    }
+
+    .points p {
+        margin-top: 20px;
+    }
+
+    .number-points {
+        font-size: 42px;
+        font-family: "Flame Regular", sans-serif;
+        text-align: center;
+    }
+    .form-cabinet {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .form-cabinet-two {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        right: 3%;
+    }
+
+    .form-group-cabinet {
+        margin: 20px;
+        width: 370px;
+
+    }
+
+    .form-label-custom {
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        height: 110px;
+    }
+
+    .mb-4 {
+        margin-bottom: 1.5rem;
+    }
+
+    .update-data {
+        position: relative;
+        font-size: 20px;
+        top: 20%;
+    }
+}
