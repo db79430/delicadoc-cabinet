@@ -18,7 +18,10 @@ function App() {
     return (
         <BrowserRouter>
             <div className="app-wrapper">
-                <UserCabinetContainer/>
+                <NavigationContainer/>
+                <Route path="/cabinet" >
+                    <UserCabinetContainer/>
+                </Route>
                 {/*<Routes>*/}
                 {/*    <Route path="*" element={} />*/}
                     {/*<Route path="/login" element={<Auth/>}/>*/}
