@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/delicadoc-cabinet/static/css/main.16cd3cbc.css",
-    "main.js": "/delicadoc-cabinet/static/js/main.1acf6ba1.js",
+    "main.js": "/delicadoc-cabinet/static/js/main.79d786af.js",
     "static/js/453.971bab48.chunk.js": "/delicadoc-cabinet/static/js/453.971bab48.chunk.js",
     "static/media/nachoc+bag.svg": "/delicadoc-cabinet/static/media/nachoc+bag.00fe1e2acfefaf75d8f094d1e5928271.svg",
     "static/media/Group 4586 (2).svg": "/delicadoc-cabinet/static/media/Group 4586 (2).e4ddd236500f751a8cbfe90f7fc12f69.svg",
@@ -58,11 +58,11 @@
     "static/media/reclange.svg": "/delicadoc-cabinet/static/media/reclange.ccb00919222c05ea0cb1b0a649d9a90e.svg",
     "static/media/line.svg": "/delicadoc-cabinet/static/media/line.c9a7d3b7d2f06e20ddfe90775a6f416c.svg",
     "main.16cd3cbc.css.map": "/delicadoc-cabinet/static/css/main.16cd3cbc.css.map",
-    "main.1acf6ba1.js.map": "/delicadoc-cabinet/static/js/main.1acf6ba1.js.map",
+    "main.79d786af.js.map": "/delicadoc-cabinet/static/js/main.79d786af.js.map",
     "453.971bab48.chunk.js.map": "/delicadoc-cabinet/static/js/453.971bab48.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.16cd3cbc.css",
-    "static/js/main.1acf6ba1.js"
+    "static/js/main.79d786af.js"
   ]
 }
