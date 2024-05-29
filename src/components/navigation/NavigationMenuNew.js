@@ -67,7 +67,7 @@ const NavigationMenuNew = ({token, user_data}) => {
     };
 
     const handleExitClick = () => {
-        navigate('/delicadoc-frontend')
+        navigate('*')
     };
 
     return (

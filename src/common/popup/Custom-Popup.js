@@ -25,7 +25,8 @@ export const CustomPopupNew = ({
                                    formData,
                                    setFormData,
                                    handleOpenPopupAuth,
-                                   handleOpenPopupRecovery
+                                   handleOpenPopupRecovery,
+                                   token
                                }) => {
         const dispatch = useDispatch();
         const location = useLocation();
@@ -153,7 +154,7 @@ export const CustomPopupNew = ({
             },
         };
         return (
-            <StyleModalDialog open={open} onClose={onClose}>
+            <StyleModalDialog open={true} onClose={onClose}>
                 <StyledModal sx={modalStyles[formType]}>
                     <Box>
                         <StyledTitle className="modal-title">

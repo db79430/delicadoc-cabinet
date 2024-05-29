@@ -14,12 +14,14 @@ const CustomButton = ({ color, size, text, textColor, icon, onClick, ...rest}) =
             onClick={onClick}
             {...rest}
         >
-            {icon && (
-                <IconContext.Provider value={{ size: "1.4em" }}>
-                    {React.cloneElement(icon, { style: { color: "white", paddingLeft: "20px" } })}
-                </IconContext.Provider>
-            )}
-            {text}
+            <div className="icon-element">
+                {icon && (
+                    <IconContext.Provider value={{ size: "1.4em"}}>
+                        {React.cloneElement(icon, { className: "icon-style", style: { color: "white"} })}
+                    </IconContext.Provider>
+                )}
+                {text}
+            </div>
         </Button>
     );
 }

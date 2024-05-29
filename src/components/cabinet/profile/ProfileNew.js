@@ -173,9 +173,8 @@ const FormRow = styled(Box)({
 
 const StyledFormLabel = styled(Typography)({
     display: 'flex',
-    justifyContent: 'center',
     textAlign: 'left',
-    color: 'rgb(255, 117, 5)',
+    color: '#341700',
     fontSize: '16px',
     margin: '5px 0',
     fontFamily: '"Flame Regular", sans-serif',

@@ -5,6 +5,17 @@
     line-height: 21px;
 }
 
+.icon-element {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 20px;
+}
+
+.icon-style {
+    margin-right: 8px;
+}
+
 .custom-button.primary {
     background: rgb(255, 255, 255);
     border-radius: 0 10px 10px 10px;
