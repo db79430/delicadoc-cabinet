@@ -29,7 +29,7 @@ function App() {
             <div className="app-wrapper">
                 <Routes>
                     <Route path="*" element={<NavigationContainer/>}/>
-                    <Route path="/cabinet" element = {<UserCabinetContainer/>}/>
+                    <Route path="delicadoc-cabinet/cabinet" element = {<UserCabinetContainer/>}/>
                 </Routes>
                 {/*<Routes>*/}
                 {/*    <Route path="*" element={} />*/}
