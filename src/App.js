@@ -19,7 +19,7 @@ function App() {
         <BrowserRouter>
             <div className="app-wrapper">
                 <Routes>
-                    <Route path="*" element={<NavigationContainer/>}/>
+                    <Route path="/delicadoc-cabinet" element={<NavigationContainer/>}/>
                     <Route path="/cabinet" element = {<UserCabinetContainer/>}/>
                 </Routes>
                 {/*<Routes>*/}
