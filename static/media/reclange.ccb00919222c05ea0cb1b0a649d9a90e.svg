@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 307.31 161">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffd22c;
+        fill-rule: evenodd;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <path id="Rectangle_1476" data-name="Rectangle 1476" class="cls-1" d="m10.02,0h236.95c3.23,0,6.26,1.56,8.14,4.18l50.34,70.5c2.48,3.48,2.48,8.15,0,11.63l-50.34,70.5c-1.88,2.63-4.91,4.19-8.14,4.19H10.02c-8.13,0-12.86-9.2-8.14-15.82l42.04-58.87c2.49-3.48,2.49-8.15,0-11.63L1.88,15.81C-2.84,9.19,1.89,0,10.02,0Z"/>
+  </g>
+</svg>
