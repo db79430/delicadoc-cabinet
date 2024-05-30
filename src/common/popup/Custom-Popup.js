@@ -19,19 +19,41 @@ import {
 
 
 export const CustomPopupNew = ({
-                                   open,
                                    onClose,
-                                   formType,
                                    formData,
                                    setFormData,
-                                   handleOpenPopupAuth,
-                                   handleOpenPopupRecovery,
-                                   token,
-                                   context
                                }) => {
-        const dispatch = useDispatch();
-        const location = useLocation();
-        const navigate = useNavigate();
+
+
+        const [formTypes, setFormTypes] = useState("registration");
+        const [open, setOpen] = useState(false)
+
+    console.log('setOpen', setOpen)
+
+    const dispatch = useDispatch();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleOpen = (formType) => {
+        switch (formType) {
+            case 'registration':
+                setOpen(false)
+                break;
+            case 'authorization':
+                setOpen(true)
+                break;
+            case 'recovery':
+                setOpen(false)
+                break;
+            default:
+                console.error('Unknown form type');
+        }
+    };
+
+
+        const handleButtonClick = (newFormType) => {
+            setFormTypes(newFormType);
+        };
 
 
         const handleChange = (e) => {
@@ -42,35 +64,67 @@ export const CustomPopupNew = ({
             });
         };
 
-        const handleSubmit = (formType) => {
-            switch (formType) {
-                case 'registration':
-                    dispatch(registrationUser(formData));
-                    break;
-                case 'authorization':
-                    (async () => {
-                        try {
-                            const response = await dispatch(userAuthenticated({ email: formData.email, password: formData.password }));
-                            if (response) {
-                                navigate("/delicadoc-cabinet/cabinet");
-                            } else if (response && response.status && response.status === 412) {
-                                alert("Неверные данные для входа");
-                            }
-                        } catch (error) {
-                            console.error('Error during authentication:', error);
-                            alert('Произошла ошибка при попытке авторизации');
+    const handleSubmit = (formTypes) => {
+        switch (formTypes) {
+            case 'registration':
+                (async () => {
+                    try {
+                        const response = await dispatch(registrationUser(formData));
+                        if (response) {
+                            handleOpen("authorization")
+                        } else if (response && response.status && response.status === 412) {
+                            alert("Участник с таким E-mail уже существует");
                         }
-                    })();
-                    break;
-                default:
-                    console.error('Unknown form type');
-            }
+                    } catch (error) {
+                        console.error('Error during authentication:', error);
+                        alert('Произошла ошибка при попытке авторизации');
+                    }
+                })();
+                break;
+            case 'authorization':
+                (async () => {
+                    try {
+                        const response = await dispatch(userAuthenticated({ email: formData.email, password: formData.password }));
+                        if (response) {
+                            navigate("/delicadoc-cabinet/cabinet");
+                        } else if (response && response.status && response.status === 412) {
+                            alert("Неверные данные для входа");
+                        }
+                    } catch (error) {
+                        console.error('Error during authentication:', error);
+                        alert('Произошла ошибка при попытке авторизации');
+                    }
+                })();
+                break;
+            case 'recovery':
+                (async () => {
+                    try {
+                        const response = await dispatch(restorePassword({ email_phone: formData.email_phone }));
+                        if (response) {
+                        } else if (response && response.status === 412) {
+                            alert("Неверные данные для входа");
+                        }
+                    } catch (error) {
+                        console.error('Error during authentication:', error);
+                        alert('Произошла ошибка при попытке авторизации');
+                    }
+                })();
+                break;
+            default:
+                console.error('Unknown form type');
         }
+    }
 
-    console.log('Navigate function:', navigate);
+    const handleClose = () => {
+        console.log("Close button clicked");
+        onClose(formTypes);
+        console.log("Close button clicked", formTypes);
+    };
 
-        const renderFormFields = () => {
-            if (formType === 'registration') {
+
+
+    const renderFormFields = () => {
+            if (formTypes === 'registration') {
                 return (
                     <div>
                         <div>
@@ -118,7 +172,7 @@ export const CustomPopupNew = ({
                         </div>
                     </div>
                 );
-            } else if (formType === 'authorization') {
+            } else if (formTypes === 'authorization') {
                 return (
                     <>
                         <FormGroup>
@@ -142,7 +196,7 @@ export const CustomPopupNew = ({
                         </FormGroup>
                     </>
                 );
-            } else if (formType === 'recovery') {
+            } else if (formTypes === 'recovery') {
                 return (
                     <>
                         <p className="text-email-recovery">Введите почту, к которой был привязан аккаунт</p>
@@ -172,15 +226,15 @@ export const CustomPopupNew = ({
             },
         };
         return (
-            <StyleModalDialog open={true} onClose={onClose}>
-                <StyledModal sx={modalStyles[formType]}>
+            <StyleModalDialog open={true} onClose={handleClose}>
+                <StyledModal sx={modalStyles[formTypes]}>
                     <Box>
                         <StyledTitle className="modal-title">
-                            {formType === 'registration' && 'Регистрация'}
-                            {formType === 'authorization' && 'Авторизация'}
-                            {formType === 'recovery' && 'Восстановление пароля'}
+                            {formTypes === 'registration' && 'Регистрация'}
+                            {formTypes === 'authorization' && 'Авторизация'}
+                            {formTypes === 'recovery' && 'Восстановление пароля'}
                         </StyledTitle>
-                        <CloseButton onClick={onClose}/>
+                        <CloseButton onClick={handleClose}/>
                     </Box>
                     <StyledContainer>
                         <FormContainer>
@@ -189,25 +243,24 @@ export const CustomPopupNew = ({
                     </StyledContainer>
                     <Box display="flex" justifyContent="center" padding={2} flexDirection="column">
                         <CustomButton
-                            text={formType === 'registration' ? 'РЕГИСТРАЦИЯ' : formType === 'authorization' ? 'ВОЙТИ' : 'ОТПРАВИТЬ'}
+                            text={formTypes === 'registration' ? 'РЕГИСТРАЦИЯ' : formTypes === 'authorization' ? 'ВОЙТИ' : 'ОТПРАВИТЬ'}
                             color="green"
                             textColor="white"
                             size="lr"
-                            onClick={() => handleSubmit(formType)}
+                            onClick={() => handleSubmit(formTypes)}
                         />
                     </Box>
-                    {formType === "registration" &&
+                    {formTypes === "registration" &&
                         <div className="account-container">
                             <p className="text-account">Уже есть аккаунт?
-                                <a onClick={handleOpenPopupAuth} className="auth-text">ВОЙТИ</a>
+                                <a onClick={() => handleButtonClick('authorization')} className="auth-text">ВОЙТИ</a>
                             </p>
                         </div>
-
                     }
                     {
-                        formType === "authorization" &&
+                        formTypes === "authorization" &&
                         <div className="account-container">
-                            <a onClick={handleOpenPopupRecovery} className="text-account">
+                            <a onClick={() => handleButtonClick('recovery')} className="text-account">
                                 Забыли пароль?
                             </a>
                         </div>

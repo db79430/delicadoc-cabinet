@@ -17,6 +17,7 @@ export const StyledModal = styled(Box)({
     width: '370px',
     height: '700px',
     borderRadius: '40px',
+    marginTop: '50px',
     backgroundColor: 'rgb(255, 251, 244)',
     padding: 0,
     top: 0,
