@@ -10,6 +10,8 @@ import {useNavigate} from "react-router-dom";
 import "./NavigationMenu.css"
 import "./NavigationMenuMedia.css"
 import {RxExit} from "react-icons/rx";
+import {IoMdPerson} from "react-icons/io";
+import {NavigationBurgerMenuCabinet} from "./burger-menu/NavigationBurgerMenuCabinet";
 
 const StyledNav = styled('nav')({
     '& ul': {
@@ -45,10 +47,11 @@ const StyledToolbar = styled(Toolbar)({
     justifyContent: 'space-between',
     maxWidth: "100%",
     padding: 0,
-    marginRight: 'calc(40px + 1vmin)',
+    marginRight: '60px',
     '@media (max-width: 430px)': {
         display: 'flex',
         justifyContent: 'space-between',
+        marginRight: '0',
     }
 
 
@@ -107,11 +110,15 @@ const NavigationMenuNew = ({token, user_data}) => {
                             </li>
                         </ul>
                     </StyledNav>
-                    {showMenuPopup && <NavigationBurgerMenu open={showMenuPopup} onClose={handleMenuClose}/>}
+                        {showMenuPopup && <NavigationBurgerMenuCabinet user_data={user_data} open={showMenuPopup} onClose={handleMenuClose}/>}
                     <div style={{display: 'flex', justifyContent: 'center', marginTop: '20px'}}>
                         <div className="button-container-cabinet">
                             <Nav.Item className="button-word">
-                                <CustomButton textColor="white" size="ls" color="green" text={user_data.first_name}/>
+                                <CustomButton icon={ <IoMdPerson size={20} />}
+                                              textColor="white"
+                                              size="ms" color="green"
+                                              text={user_data.first_name}
+                                />
                             </Nav.Item>
                             <Nav.Item className="button-word">
                                 <CustomButton textColor="white"

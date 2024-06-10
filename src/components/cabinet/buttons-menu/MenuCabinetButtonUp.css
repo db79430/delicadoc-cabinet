@@ -14,5 +14,6 @@
 .data-cabinet {
     display: flex;
     justify-content: center;
-    margin-top: 40px;
+    width: 100%;
+    margin-top: 20px;
 }

@@ -1,5 +1,5 @@
 import {Container} from "react-bootstrap";
-import React from "react";
+import React, {useEffect} from "react";
 import group4583 from "./img/Group 4583.svg"
 import group45832 from "./img/Group 4583 (2).svg"
 import group45833 from "./img/Group 4583 (3).svg"
@@ -12,31 +12,36 @@ import group45865 from "./img/Group 4586 (5).svg"
 import group45866 from "./img/Group 4586 (6).svg"
 import group45867 from "./img/Group 4586 (7).svg"
 import "./Prizes.css"
+import {getWeekInfoPromo, userGift} from "../../../redux/function/function-service";
+import {useDispatch, useSelector} from "react-redux";
 
-export const Prizes = () => {
-    const images = [
-        { src: group4583, caption: 'Баллы на карту лояльности от «Перекрестка»' },
-        { src: group45833, caption: 'iPhone 15 Pro' },
-        { src: group4586, caption: 'Сертификат на 2 000 рублей' },
-        { src: group45861, caption: 'Подарочный сертификат «Пятёрочка» на  2000 рублей' },
-        { src: group45862, caption: 'Деньги на телефон (20 р)' },
-        { src: group45863, caption: 'Чемодан Samsonite' },
-        { src: group45864, caption: 'Тревел Сертификат от «tutu» на 4000 рублей' },
-        { src: group45865, caption: 'Путешествие в Мексику' },
-        { src: group45866, caption: 'Фотоаппарат Instax' },
-        { src: group45867, caption: 'Колонка Яндекс Мини' },
-        { src: group45832, caption: 'Купон «Скидка 40%»' }
-    ];
+export const Prizes = ({ token }) => {
+    const dispatch = useDispatch();
+    const prizes = useSelector(state => state.infoPromo.prizesUser);
+
+    useEffect(() => {
+        if (!prizes.length) {
+            dispatch(userGift(token));
+        }
+    }, [dispatch, prizes.length, token]);
+
+    console.log('prizes', prizes);
+
     return (
         <div className="prizes-container">
-                <div className="image-grid">
-                    {images.map((image, index) => (
-                        <div key={index} className="image-item">
-                            <img className="img-prizes" src={image.src} alt={image.caption} />
-                            <div className="caption">{image.caption}</div>
+            <div className="image-grid">
+                {prizes.map((image, index) => (
+                    <div key={index}>
+                        <div className="image-wrapper">
+                            <img src={image.shop_img} className="shop-img" />
+                            <img className="img-prizes" src={image.img_gift} />
                         </div>
-                    ))}
-                </div>
+                        <div>
+                            <div className="caption">{image.name}</div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
-    )
-}
+    );
+};

@@ -1,6 +1,9 @@
 @media (max-width: 430px) {
     .burger-menu-container {
         display: flex;
+        justify-content: flex-end;
+        margin-left: 70px;
+        margin-top: 20px;
     }
 
     .tooldbar-media {

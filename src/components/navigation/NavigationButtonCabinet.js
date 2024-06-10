@@ -7,103 +7,119 @@ import './NavigationMenu.css'
 
 import {RegistrationPopup} from "../../common/registration/popup-registration";
 import NestedModal from "../../common/button/Example";
-import {CustomPopupNew} from "../../common/popup/Custom-Popup";
+import {CustomPopupAuth} from "../../common/popup-auth/CustomPopupAuth";
 import {registrationUser, restorePassword, userAuthenticated, userInfo} from "../../redux/function/function-service";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 
-export const NavigationButtonCabinet = ({token}) => {
-        const [openPopupRegistration, setOpenPopupRegistration] = useState(false);
-        const [openPopupAuth, setOpenPopupAuth] = useState(false);
-        const [openPopupRecovery, setOpenPopupRecovery] = useState(false);
-        const [formData, setFormData] = useState({
-            first_name: '',
-            family_name: '',
-            email: '',
-            email_phone: '',
-            phone: '',
-            password: '',
-            token: '',
-            formType: ''
-        });
 
+export const NavigationButtonCabinet = ({ token }) => {
+    const [openPopupRegistration, setOpenPopupRegistration] = useState(false);
+    const [openPopupAuth, setOpenPopupAuth] = useState(false);
+    const [openPopupRecovery, setOpenPopupRecovery] = useState(false);
+    const [currentForm, setCurrentForm] = useState(null);
+    const [formData, setFormData] = useState({
+        first_name: '',
+        family_name: '',
+        email: '',
+        email_phone: '',
+        phone: '',
+        password: '',
+        token: '',
+        formType: ''
+    });
 
-        const handleOpenPopupAuth = () => {
-            setOpenPopupAuth(true);
-            setOpenPopupRegistration(false)
-        }
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-        const handleOpenPopupRecovery = () => {
-            setOpenPopupRecovery(true)
-            setOpenPopupAuth(false);
+    useEffect(() => {
+        setCurrentForm('registration');
+    }, []);
 
-        }
+    const handleClose = () => {
+        console.log(`handleClose called`);
+        setCurrentForm("authorization");
+    };
 
-        const handleButtonClick = (formType) => {
-            if (formType === 'registration') {
-                setOpenPopupRegistration(true);
-                setOpenPopupAuth(false);
-                setOpenPopupRecovery(false);
-            } else if (formType === 'authorization') {
-                setOpenPopupAuth(true);
-                setOpenPopupRegistration(false);
-                setOpenPopupRecovery(false);
-            } else if (formType === 'recovery') {
-                setOpenPopupRecovery(true);
-                setOpenPopupAuth(false);
-                setOpenPopupRegistration(false);
+    const handleButtonClick = (formType) => {
+        console.log(`handleButtonClick called with formType: ${formType}`);
+        setCurrentForm(formType);
+    };
+
+    const handleResponse = (response, successAction, errorMessage) => {
+        if (response) {
+            if (typeof successAction === 'string') {
+                console.log(`Navigating to: ${successAction}`);
+                navigate(successAction);
+            } else if (typeof successAction === 'function') {
+                successAction();
             }
-        };
+        } else {
+            alert(errorMessage);
+        }
+    };
 
-        return (
-            <>
-                <div className="button-container">
-                    {/*<Nav.Item className="button-word">*/}
-                    {/*    <CustomButton textColor="green" size="sm" color="primary" text={"Играть"}/>*/}
-                    {/*</Nav.Item>*/}
-                    {/*<Nav.Item className="button-word">*/}
-                    {/*    <CustomButton*/}
-                    {/*        textColor="white"*/}
-                    {/*        size="sm"*/}
-                    {/*        color="green"*/}
-                    {/*        text={"Войти"}*/}
-                    {/*        onClick={() => handleButtonClick('registration')}*/}
-                    {/*    />*/}
-                    <CustomPopupNew
-                        formData={formData}
-                        open={openPopupRegistration}
-                        onClose={() => setOpenPopupRegistration(false)}
-                        setFormData={setFormData}
-                        formType="registration"
-                        handleOpenPopupAuth={handleOpenPopupAuth}
-                        handleOpenPopupRecovery={handleOpenPopupRecovery}
-                    />
-                    {openPopupAuth && (
-                        <CustomPopupNew
-                            open={openPopupAuth}
-                            onClose={() => setOpenPopupAuth(false)}
-                            formType="authorization"
-                            setFormData={setFormData}
-                            formData={formData}
-                            handleOpenPopupAuth={handleOpenPopupAuth}
-                            handleOpenPopupRecovery={handleOpenPopupRecovery}
-                        />
-                    )}
-                    {openPopupRecovery && (
-                        <CustomPopupNew
-                            open={openPopupRecovery}
-                            onClose={() => setOpenPopupRecovery(false)}
-                            formType="recovery"
-                            setFormData={setFormData}
-                            formData={formData}
-                            handleOpenPopupAuth={handleOpenPopupAuth}
-                            handleOpenPopupRecovery={handleOpenPopupRecovery}
-                        />
-                    )}
-                    {/*</Nav.Item>*/}
-                </div>
-            </>
-        )
-            ;
-    }
-;
+    const handleSubmit = async (formType) => {
+        console.log(`handleSubmit called with formType: ${formType}`);
+        try {
+            let response;
+            switch (formType) {
+                case 'registration':
+                    response = await dispatch(registrationUser(formData));
+                    handleResponse(response, 'authorization', 'Участник с таким E-mail уже существует');
+                    break;
+                case 'authorization':
+                    response = await dispatch(userAuthenticated({
+                        email: formData.email,
+                        password: formData.password
+                    }));
+                    handleResponse(response, '/delicadoc-cabinet/cabinet', 'Неверные данные для входа');
+                    return response;
+                case 'recovery':
+                    response = await dispatch(restorePassword({ email_phone: formData.email_phone }));
+                    handleResponse(response, 'authorization', 'Неверные данные для входа');
+                    break;
+                default:
+                    console.error('Unknown form type');
+            }
+        } catch (error) {
+            console.error(`Error during ${formType}:`, error);
+            alert(`Произошла ошибка при попытке ${formType}`);
+        }
+    };
+
+    return (
+        <div className="button-container">
+            {currentForm === 'registration'  && (
+                <CustomPopupAuth
+                    formData={formData}
+                    open={true}
+                    onClose={handleClose}
+                    setFormData={setFormData}
+                    formType="registration"
+                    handleSubmit={handleSubmit}
+                />
+            )}
+            {currentForm === 'authorization' && (
+                <CustomPopupAuth
+                    open={true}
+                    onClose={handleClose}
+                    formType="authorization"
+                    setFormData={setFormData}
+                    formData={formData}
+                    handleSubmit={handleSubmit}
+                />
+            )}
+            {currentForm === 'recovery' && (
+                <CustomPopupAuth
+                    open={true}
+                    onClose={handleClose}
+                    formType="recovery"
+                    setFormData={setFormData}
+                    formData={formData}
+                    handleSubmit={handleSubmit}
+                />
+            )}
+        </div>
+    );
+};

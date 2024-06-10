@@ -41,8 +41,12 @@ export const MenuCabinetButtonUp = ({token, user_data}) => {
             </div>
             <div className="data-cabinet">
                 {currentPage === 'personalData' && <ProfileNew token={token} user_data={user_data}/>}
+            </div>
+            <div>
+                {currentPage === 'prizes' && <PrizesContainer token={token}/>}
+            </div>
+            <div>
                 {currentPage === 'checks' && <ChecksNew token={token}/>}
-                {currentPage === 'prizes' && <PrizesContainer/>}
             </div>
         </div>
     )

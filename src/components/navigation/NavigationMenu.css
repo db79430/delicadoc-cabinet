@@ -66,9 +66,12 @@
 
     .button-word {
         padding-top: 20px;
-        padding-left: 20px;
         z-index: 1;
     }
+
+   .button-word-cabinet {
+
+   }
 
     .burger-menu-container {
         display: none;

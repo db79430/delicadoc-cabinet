@@ -1,8 +1,8 @@
 import {
-    SET_AUTHENTICATED_USER, SET_CHECKS,
-    SET_INFO_PROMO,
+    SET_AUTHENTICATED_USER, SET_CHECK_FIELDS, SET_CHECKS,
+    SET_INFO_PROMO, SET_PRIZES_USER,
     SET_RECOVERY_PASSWORD,
-    SET_REGISTRATION_USER, SET_USER_INFO, SET_USER_TOKEN,
+    SET_REGISTRATION_USER, SET_SELECT_POINTS_USER, SET_USER_INFO, SET_USER_TOKEN,
     SET_WEEK_INFO_PROMO
 } from "../constant/constant";
 
@@ -15,7 +15,10 @@ export const initialState = {
     email_phone: "",
     data: null,
     token: "",
-    checks: []
+    checks: [],
+    prizesUser: [],
+    points: null,
+    checkFields: null
 };
 
 export const infoPromoReducer = (state = initialState, action) => {
@@ -59,6 +62,21 @@ export const infoPromoReducer = (state = initialState, action) => {
             return  {
                 ...state,
                 checks: action.checks
+            }
+        case SET_PRIZES_USER:
+            return {
+                ...state,
+                prizesUser: action.prizesUser
+            }
+        case SET_SELECT_POINTS_USER:
+            return {
+                ...state,
+                points: action.points
+            }
+        case SET_CHECK_FIELDS:
+            return {
+                ...state,
+                checkFields: action.checkFields
             }
         default:
             return state;

@@ -5,18 +5,93 @@ import "./Checks.css"
 import styled from 'styled-components';
 import {setChecks} from "../../../redux/action/action";
 import "./Checks.css"
+import {MenuCabinetButtonChecksPlayUp} from "../buttons-checks-play/MenuCabinetButtonChecksPlayUp";
+import {Box, Typography} from "@mui/material";
+
+
+const TableContainer = styled(Box)({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '90%',
+    boxSizing: "border-box",
+    border: '2px solid rgba(255, 255, 255, 0.2)',
+    borderRadius: '0px 30px 30px 30px;',
+    fontFamily: '"Blue curve", sans-serif'
+
+});
+
+const TableHeader = styled(Box)({
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: '80%',
+    marginLeft: '30px',
+    textAlign: 'center',
+    marginBottom: '20px',
+    padding: '15px',
+    backgroundColor: '#ff6600',
+    color: 'white',
+    '@media (max-width: 430px)': {
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& > div': {
+            margin: '10px 0',
+            width: '100%',
+            justifyContent: 'center',
+        },
+    },
+});
+
+const TableRow = styled(Box)({
+    display: 'flex',
+    justifyContent: 'space-between',
+    position: 'relative',
+    width: '90%',
+    padding: '12px',
+    borderBottom: '1px solid #FFC18E',
+    '&:nth-child(even)': {
+        backgroundColor: 'transparent',
+    },
+    '@media (max-width: 430px)': {
+        flexDirection: 'column',
+        alignItems: 'center',
+        '& > div': {
+            margin: '10px 0',
+            width: '100%',
+            justifyContent: 'center',
+        },
+    },
+});
+
+const TableCell = styled(Box)({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '12px',
+    textAlign: 'center',
+});
+
+const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const day = date.getUTCDate().toString().padStart(2, '0');
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+    const year = date.getUTCFullYear().toString().slice(2);
+    const hours = date.getUTCHours().toString().padStart(2, '0');
+    const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+    return `${day}.${month}.${year} ${hours}:${minutes}`;
+};
 
 export const ChecksNew = ({ token }) => {
-    const checks = useSelector(state => state.infoPromo.checks);
+    const checks = useSelector((state) => state.infoPromo.checks);
     const dispatch = useDispatch();
     const [currentData, setCurrentData] = useState([]);
 
-    console.log('checks', checks)
+    console.log('cheks', checks)
 
     useEffect(() => {
         dispatch(checksUser(token));
-
-    }, [dispatch]);
+    }, [dispatch, token]);
 
     useEffect(() => {
         if (Array.isArray(checks)) {
@@ -27,114 +102,36 @@ export const ChecksNew = ({ token }) => {
     }, [checks]);
 
     return (
-        <TableContainer>
-            <thead>
-            <TableRow>
-                <TableHeader className="date">Дата</TableHeader>
-                <TableHeader className="number-checks">Номер чека</TableHeader>
-                <TableHeader className="status">Статус</TableHeader>
-            </TableRow>
-            </thead>
-            <StyledTable>
-                <tbody>
-                {currentData.map((check, index) => (
-                    <TableRow key={index}>
-                        <TableCell><img src={check.image} alt="" /></TableCell>
-                        <TableCell>{check.date}</TableCell>
-                        <TableCell></TableCell>
-                        <TableCell>{check.name_status}</TableCell>
-                    </TableRow>
-                ))}
-                </tbody>
-            </StyledTable>
-        </TableContainer>
+        <div>
+            <MenuCabinetButtonChecksPlayUp token={token} />
+            <div className="table-checks">
+                <TableHeader>
+                    <Typography>Дата</Typography>
+                    <Typography>Номер чека</Typography>
+                    <Typography>Статус</Typography>
+                </TableHeader>
+                <TableContainer>
+                    {currentData.map((check, index) => (
+                        <TableRow key={index}>
+                            <TableCell>
+                                <img
+                                    style={{ width: '50px', height: 'auto' }}
+                                    src={check.general_attachment}
+                                />
+                            </TableCell>
+                            <TableCell>
+                                <Typography>{formatDate(check.date)}</Typography>
+                            </TableCell>
+                            <TableCell>
+                                <Typography>{check.id}</Typography>
+                            </TableCell>
+                            <TableCell>
+                                <Typography>{check.name_status}</Typography>
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableContainer>
+            </div>
+        </div>
     );
 };
-
-const TableContainer = styled.div`
-  margin: 20px 0;
-`;
-
-const StyledTable = styled.table`
-  width: 90%;
-  display: flex;
-  justify-content: center;
-  box-sizing: border-box;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 0px 30px 30px 30px;
-  @media (max-width: 430px) {
-    display: block;
-    thead, tbody, th, td, tr {
-      display: block;
-    }
-
-    thead tr {
-      position: absolute;
-    }
-
-    tr {
-      margin: 0 0 1rem 0;
-    }
-
-    td {
-      border: none;
-      position: relative;
-      padding-left: 50%;
-      white-space: nowrap;
-      text-align: left;
-    }
-
-    td:before {
-      position: absolute;
-      top: 0;
-      left: 6px;
-      width: 45%;
-      padding-right: 10px;
-      white-space: nowrap;
-      content: attr(data-label);
-      text-align: left;
-      font-weight: bold;
-    }
-  }
-`;
-
-const TableRow = styled.tr`
-  flex-direction: row;
-  justify-content: space-between;
-    &:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-`;
-
-const TableHeader = styled.th`
-  padding: 22px;
-  color: white;
-  text-align: center;
-  @media (max-width: 430px) {
-    width: 100%;
-    display: block;
-    text-align: center;
-  }
-`;
-
-const TableCell = styled.td`
-    padding: 12px;
-    text-align: left;
-    @media (max-width: 430px) {
-        display: block;
-        text-align: right;
-        border-bottom: none;
-        position: relative;
-        padding-left: 50%;
-        &:before {
-            content: attr(data-label);
-            position: absolute;
-            left: 0;
-            width: 50%;
-            padding-right: 10px;
-            white-space: nowrap;
-            text-align: left;
-            font-weight: bold;
-        }
-    }
-`;

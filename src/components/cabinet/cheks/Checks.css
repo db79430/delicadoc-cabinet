@@ -10,3 +10,12 @@
 .status {
     position: relative;
 }
+
+.table-checks {
+    position: relative;
+    left: 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}

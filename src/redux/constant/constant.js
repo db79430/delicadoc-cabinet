@@ -11,3 +11,10 @@ export const SET_USER_INFO = "SET_USER_INFO"
 export const SET_USER_TOKEN = "SET_USER_TOKEN"
 
 export const SET_CHECKS = "SET_CHECKS"
+
+export const SET_PRIZES_USER = "SET_PRIZES_USER"
+
+export const SET_SELECT_POINTS_USER = "SET_SELECT_POINTS_USER"
+
+export const SET_CHECK_FIELDS = "SET_CHECK_FIELDS"
+

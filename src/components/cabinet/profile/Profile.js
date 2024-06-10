@@ -1,7 +1,7 @@
 // import {Col, Form, Row, Container} from "react-bootstrap";
 // import React, {useEffect} from "react";
 // import "./Profile.css"
-// import {MenuCabinetButtonDown} from "../buttons-checks-play/MenuCabinetButtonDown";
+// import {MenuCabinetButtonDown} from "../buttons-checks-play-info-main/MenuCabinetButtonDown";
 // import "./ProfileMedia.css"
 // import {setUserInfo, setUserToken} from "../../../redux/action/action";
 // import {useDispatch, useSelector} from "react-redux";

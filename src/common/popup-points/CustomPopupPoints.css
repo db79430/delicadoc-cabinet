@@ -1,0 +1,30 @@
+.points-title {
+    color: #341700;
+    font-family: "Flame Regular", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.points-position {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    z-index: 1;
+}
+
+.image-background {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    left: 25%;
+    z-index: 0;
+}
+
+.image-points {
+    width: 70%;
+    height: 70%;
+}

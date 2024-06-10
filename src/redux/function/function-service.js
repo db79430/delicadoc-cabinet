@@ -1,11 +1,12 @@
-import {apiWeb} from "../../api/Api";
+import {apiBot, apiWeb} from "../../api/Api";
 import {
+    setCheckFields,
     setChecks,
-    setInfoPromo,
+    setInfoPromo, setPrizesUser, setSelectPointsUser,
     setUserAuthenticated,
     setUserInfo,
     setUserRecoveryPassword, setUserToken,
-    setWeekIngoPromo
+    setWeekInfoPromo
 } from "../action/action";
 import {Navigate, useLocation} from "react-router-dom";
 import React from "react";
@@ -30,7 +31,7 @@ export const registrationUser = (newUser) => dispatch => {
 export const getWeekInfoPromo = () => {
     return (dispatch) => {
         apiWeb.getInfoPromo().then(data => {
-            dispatch(setWeekIngoPromo(data.data))
+            dispatch(setWeekInfoPromo(data.data))
         })
     }
 }
@@ -70,7 +71,7 @@ export const getWeekInfoPromo = () => {
 export const userAuthenticated = (data) => async dispatch => {
     try {
         const response = await apiWeb.postUserAuthenticated(data);
-        dispatch(setUserAuthenticated(response.user));
+        dispatch(setUserAuthenticated(response));
         dispatch(setUserToken(response.token));
         return response;
     } catch (error) {
@@ -82,17 +83,33 @@ export const userAuthenticated = (data) => async dispatch => {
     }
 };
 
-export const userInfo = (token) => (dispatch, getState) => {
-    dispatch(setUserToken(token));
-    return apiWeb.getUserInfo(token).then(response => {
-        dispatch(setUserInfo(response));
-        dispatch(setUserRecoveryPassword(response.token));
+// export const userInfo = (token, data) => async dispatch  => {
+//     try {
+//         const response = await apiWeb.getUserInfo(token);
+//         dispatch(setUserInfo(response.data));
+//         dispatch(setUserToken(token));
+//         return response;
+//     } catch (error) {
+//         if (error.response && error.response.status === 412) {
+//             alert("Неверные данные для входа");
+//         } else {
+//             throw error;
+//         }
+//     }
+// };
+
+export const userInfo = (token) => async (dispatch) => {
+    try {
+        const response = await apiWeb.getUserInfo(token);
+        dispatch(setUserInfo(response.data));
         return response;
-    }).catch(error => {
+    } catch (error) {
         if (error.response && error.response.status === 412) {
             alert("Неверные данные для входа");
+        } else {
+            throw error;
         }
-    });
+    }
 };
 
 export const restorePassword = (data) => {
@@ -114,4 +131,49 @@ export const checksUser = (token) => (dispatch, getState) => {
         }
     });
 };
+
+export const userGift = (token) => (dispatch) => {
+    dispatch(setUserToken(token));
+    return apiWeb.getGiftUser(token).then(response => {
+        dispatch(setPrizesUser(response.data))
+        return response;
+    }).catch(error => {
+        if (error.response && error.response.status === 412) {
+            alert("Неверные данные для входа");
+        }
+    });
+};
+
+export const userSelectPoints = (token, data) => (dispatch) => {
+    dispatch(setUserToken(token));
+    return apiWeb.postSelectPointsUser(token, data)
+        .then(response => {
+            dispatch(setSelectPointsUser(data));
+            return response;
+        })
+        .catch(error => {
+            if (error.response && error.response.status === 412) {
+                alert("Не хватает баллов для обмена");
+            } else {
+                console.error("Ошибка при выборе купона:", error);
+                throw error;
+            }
+        });
+};
+
+
+export const uploadCheckFoto = (promo, token) => (dispatch, getState) => {
+    dispatch(setUserToken(token));
+    return apiBot.postUpdateCheckFoto(promo, token).then(response => {
+        return response;
+    })
+}
+
+export const uploadCheckFields = (promo, token, data) => (dispatch, getState) => {
+    dispatch(setUserToken(token));
+    return apiBot.postUpdateCheckFields(promo, token, data).then(response => {
+        dispatch(setCheckFields(data))
+        return response;
+    })
+}
 

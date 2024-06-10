@@ -1,5 +1,5 @@
 import {
-    SET_AUTHENTICATED_USER,
+    SET_AUTHENTICATED_USER, SET_CHECK_FIELDS,
     SET_INFO_PROMO,
     SET_RECOVERY_PASSWORD,
     SET_REGISTRATION_USER, SET_USER_INFO,
@@ -30,7 +30,7 @@ export const setUserRecoveryPassword = (email_phone) => ({
 })
 
 
-export const setWeekIngoPromo = (week_day) => ({
+export const setWeekInfoPromo = (week_day) => ({
     type: "SET_WEEK_INFO_PROMO",
     week_day
 })
@@ -49,3 +49,18 @@ export const setChecks = (checks) => ({
     type: 'SET_CHECKS',
     checks
 });
+
+export const setPrizesUser = (prizesUser) => ({
+    type: 'SET_PRIZES_USER',
+    prizesUser
+})
+
+export const setSelectPointsUser = (points) => ({
+    type: 'SET_SELECT_POINTS_USER',
+    points
+})
+
+export const setCheckFields = (checkFields) => ({
+    type: SET_CHECK_FIELDS,
+    checkFields
+})

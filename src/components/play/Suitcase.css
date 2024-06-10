@@ -1,0 +1,15 @@
+.suitcase {
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.suitcase img {
+    width: 100px;
+    height: auto;
+}
+
+.suitcase:hover {
+    transform: scale(1.1);
+}

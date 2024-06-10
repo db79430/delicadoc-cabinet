@@ -1,49 +1,117 @@
+/*.prizes-container {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    margin: 30px;*/
+/*}*/
+
+/*.image-grid {*/
+/*    display: grid;*/
+/*    grid-template-columns: repeat(5, 1fr);*/
+/*    gap: 16px;*/
+/*}*/
+/*.img-prizes {*/
+/*    width: 300px;*/
+/*    height: 300px;*/
+/*}*/
+/*.image-item {*/
+/*    text-align: center;*/
+
+/*}*/
+
+/*.image-item img {*/
+/*    width: 240px;*/
+/*    height: 240px;*/
+/*}*/
+
+/*.caption {*/
+/*    margin-top: 8px;*/
+/*}*/
+
 .prizes-container {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     margin: 30px;
 }
 
 .image-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
 }
-.img-prizes {
+
+.image-item {
+    position: relative;
+}
+
+.image-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 300px;
     height: 300px;
+    border-radius: 5px;
+    background: rgba(255, 247, 235, 0.7);
+    flex-direction: column;
 }
-.image-item {
-    text-align: center;
 
+.shop-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
 }
 
-.image-item img {
-    width: 240px;
-    height: 240px;
+.img-prizes {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    z-index: 1;
 }
 
 .caption {
-    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
+
 
 @media (max-width: 430px) {
     .image-grid {
         grid-template-columns: repeat(2, 1fr);
+        /*flex-wrap: wrap;*/
+        display: grid;
+        flex-wrap: wrap;
+        gap: 20px;
     }
 
+
     .img-prizes {
-        width: 300px;
-        height: 300px;
+        width: 150px;
+        height: 150px;
     }
     .image-item {
         text-align: center;
-
     }
 
-    .image-item img {
-        width: 200px;
-        height: 200px;
+    .shop-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
     }
+
+    .image-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+
 
 }

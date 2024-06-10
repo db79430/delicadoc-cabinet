@@ -20,7 +20,7 @@
     .modal-body-popup {
         display: flex;
         justify-content: center;
-        margin-top: 40px;
+        font-family: "Blue Curve", sans-serif;
     }
 
     .img-navbar {

@@ -17,8 +17,21 @@ export const getAxiosInstance = (site) => {
     })
 }
 
+export const botAxiosInstance = () => {
+    return axios.create({
+        baseURL: 'https://promo.develop-ogr.ru/api',
+        withCredentials: false,
+        credentials: true,
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+            'promo-host': 'site.promo.develop-ogr.ru'
+        },
+        crossDomain: true,
+    })
+}
 export const apiWeb = {
-    async getInfoGiftPromo()  {
+    async getInfoGiftPromo() {
         const axiosInstance = await getAxiosInstance();
         return axiosInstance.get('/promo/gift').then(response => response.data)
     },
@@ -28,7 +41,7 @@ export const apiWeb = {
         return axiosInstance.get('/promo').then(response => response.data)
     },
 
-    async postRegistrationUser(newUser){
+    async postRegistrationUser(newUser) {
         const axiosInstance = await getAxiosInstance();
         return axiosInstance.post('/user/registration', newUser).then(response => response)
             .catch(error => {
@@ -37,79 +50,83 @@ export const apiWeb = {
             })
     },
 
-     async postUserAuthenticated(data) {
-    const axiosInstance = await getAxiosInstance();
+    async postUserAuthenticated(data) {
+        const axiosInstance = await getAxiosInstance();
         return axiosInstance.post(`/user/authenticated`, data).then(response => {
             return response.data
         })
     },
 
-    async postRecoveryPassword(data){
+    async postRecoveryPassword(data) {
         const axiosInstance = await getAxiosInstance();
         return axiosInstance.post(`/user/reset-password`, data).then(response => {
             return response
         })
     },
 
-    async getUserInfo(token){
+    async getUserInfo(token) {
         const axiosInstance = await getAxiosInstance();
         return axiosInstance.get(`/user/${token}`).then(response => {
-            return response.data
+            return response
         })
     },
 
-    async postUpdateUser(userId){
+    async postUpdateUser(userId) {
         const axiosInstance = await getAxiosInstance();
-        return axiosInstance.post(`/user/${userId}`,).then(response => {
+        return axiosInstance.post(`/user/${userId}`).then(response => {
             return response.data
         })
     },
 
-    async postUpdatePointsUser(userId){
+    async postUpdatePointsUser(userId) {
         const axiosInstance = await getAxiosInstance();
-        return axiosInstance.post(`/user/${userId}/set-points`,).then(response => {
+        return axiosInstance.post(`/user/${userId}/set-points`).then(response => {
             return response.data
         })
     },
 
-    async postSelectPointsUser(userId){
+    async postSelectPointsUser(token) {
         const axiosInstance = await getAxiosInstance();
-        return axiosInstance.post(`/user/${userId}/select-coupon`,).then(response => {
-            return response.data
-        })
+        try {
+           return await axiosInstance.post(`/user/${token}/select-coupon`).then(response => {
+               return response.data
+           })
+        } catch (error) {
+            console.error("Ошибка при запросе на выбор купона:", error);
+            throw error;
+        }
     },
 
-    async getGiftUser(userId){
+    async getGiftUser(token, data) {
         const axiosInstance = await getAxiosInstance();
-        return axiosInstance.get(`/user/${userId}/gift`,).then(response => {
+        return axiosInstance.get(`/user/${token}/gift`).then(response => {
             return response.data
         })
     },
 
-    async getChecksUser(token){
+    async getChecksUser(token) {
         const axiosInstance = await getAxiosInstance();
-        return axiosInstance.get(`/user/${token}/check`,).then(response => {
+        return axiosInstance.get(`/user/${token}/check`).then(response => {
             return response.data
         })
     },
 
-    async postUpdateCheckFoto(){
-        const axiosInstance = await getAxiosInstance();
-        return axiosInstance.post(`/api/sending-check/photo/`,).then(response => {
+}
+
+export const apiBot = {
+    async postUpdateCheckFoto(promo, token) {
+        const axiosInstance = await botAxiosInstance();
+        return axiosInstance.post(`/sending-check/photo/${promo}/${token}`).then(response => {
             return response.data
         })
     },
 
-    async postUpdateCheckFields(){
-        const axiosInstance = await getAxiosInstance();
-        return axiosInstance.post(`/sending-check/fields/{{promo}}/{{user}}`,).then(response => {
+    async postUpdateCheckFields(promo, token, data) {
+        const axiosInstance = await botAxiosInstance();
+        return axiosInstance.post(`/sending-check/fields/${promo}/${token}`, data).then(response => {
             return response.data
         })
     },
-
-
-
-
 }
 
 

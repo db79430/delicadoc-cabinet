@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Box, Typography, TextField } from '@mui/material';
@@ -7,8 +7,30 @@ import {MenuCabinetButtonDown} from "../buttons-checks-play/MenuCabinetButtonDow
 import {styled} from "@mui/system";
 import "./Profile.css"
 import "./ProfileMedia.css"
+import InputMask from 'react-input-mask';
 
 export const ProfileNew = ({ token, user_data }) => {
+
+    const [userData, setUserData] = useState({
+        first_name: '',
+        family_name: '',
+        phone: '',
+        email: '',
+        cart: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUserData({
+            ...userData,
+            [name]: value
+        });
+    };
+
+    const handleUpdate = () => {
+        // Implement the logic to handle data update
+        alert("Данные успешно изменены");
+    };
 
 
     const renderFormFields = () => {
@@ -51,13 +73,19 @@ export const ProfileNew = ({ token, user_data }) => {
                         </FormGroup>
                         <FormGroup>
                             <StyledFormLabel>Карта</StyledFormLabel>
-                            <StyledTextField
-                                placeholder="Введите карту"
-                                name="cart"
-                                value={user_data.cart || ''}
-                            />
+                            <InputMask
+                                mask="9999 9999 9999 9999"
+                                value={user_data.cart}
+                                onChange={handleChange}
+                            >
+                                {() => <StyledTextField
+                                    placeholder="Введите карту"
+                                    name="cart"
+                                    required
+                                />}
+                            </InputMask>
                         </FormGroup>
-                        <UpdateData>
+                        <UpdateData onClick={handleUpdate}>
                             <a>Изменить данные</a>
                         </UpdateData>
                     </FormRow>
@@ -77,7 +105,7 @@ export const ProfileNew = ({ token, user_data }) => {
             <FormContainer>
                 {renderFormFields()}
             </FormContainer>
-            <MenuCabinetButtonDown />
+            <MenuCabinetButtonDown token={token} />
         </ProfileContainer>
     );
 };
@@ -186,6 +214,7 @@ const StyledTextField = styled(TextField)({
     width: '420px',
     margin: '10px 0',
     backgroundColor: '#FFF7EB',
+    borderColor: 'rgb(255, 117, 5)',
     '& .MuiOutlinedInput-root': {
         '& fieldset': {
             borderColor: 'rgb(255, 117, 5)',
@@ -196,14 +225,13 @@ const StyledTextField = styled(TextField)({
         },
         '&.Mui-focused fieldset': {
             borderColor: 'rgb(255, 117, 5)',
-            height: '70px',
         },
     },
     '& .MuiInputBase-input': {
         color: '#341700',
         fontFamily: '"Flame Regular", sans-serif',
         paddingLeft: '16px',
-        height: '90px'
+        height: '90px',
     },
 });
 
